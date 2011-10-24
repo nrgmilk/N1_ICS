@@ -1,6 +1,6 @@
 assert(getprop("ro.product.device") == "passion" || getprop("ro.build.product") == "passion" || getprop("ro.product.board") == "passion");
 show_progress(0.500000, 0);
-mount("yaffs2", "MTD", "data", "/data");
+mount("yaffs2", "MTD", "userdata", "/data");
 package_extract_dir("data", "/data");
 unmount("/data");
 format("yaffs2", "MTD", "system");
@@ -38,7 +38,7 @@ symlink("busybox", "/system/xbin/[", "/system/xbin/[[",
         "/system/xbin/insmod", "/system/xbin/install", "/system/xbin/iostat",
         "/system/xbin/ip", "/system/xbin/kill", "/system/xbin/killall",
         "/system/xbin/killall5", "/system/xbin/length", "/system/xbin/less",
-        "/system/xbin/ln", "/system/xbin/losetup", "/system/xbin/ls",
+        "/system/xbin/ln", "/system/xbin/losetup",
         "/system/xbin/lsattr", "/system/xbin/lsmod", "/system/xbin/lsusb",
         "/system/xbin/lzcat", "/system/xbin/lzma", "/system/xbin/lzop",
         "/system/xbin/lzopcat", "/system/xbin/man", "/system/xbin/md5sum",
@@ -100,7 +100,7 @@ symlink("toolbox", "/system/bin/cat", "/system/bin/cmp",
         "/system/bin/smd", "/system/bin/start", "/system/bin/stop",
         "/system/bin/sync", "/system/bin/top", "/system/bin/uptime",
         "/system/bin/vmstat", "/system/bin/watchprops",
-        "/system/bin/wipe");
+        "/system/bin/wipe", "/system/bin/ls");
 set_perm_recursive(0, 0, 0755, 0644, "/system");
 set_perm_recursive(0, 2000, 0755, 0755, "/system/bin");
 set_perm(0, 3003, 02750, "/system/bin/netcfg");
